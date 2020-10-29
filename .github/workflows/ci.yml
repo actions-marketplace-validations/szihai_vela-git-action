@@ -1,16 +1,17 @@
 on: push
-name: deploy
 jobs:
-  deploy:
-    name: deploy to cluster
+  test-action:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@master
-    - name: prepare environment
-      uses: steebchen/kubectl@master
-      env:
-        KUBE_CONFIG_DATA: ${{ secrets.KUBECONFIG }}
-    - name: test cluster
-      run: |
-        kubectl get po
-        
+      - uses: actions/checkout@v2
+      - name: Run Kubernetes tools
+        uses: stefanprodan/kube-tools@v1
+        with:
+          kubectl: 1.18.2
+          kustomize: 3.5.5
+          helm: 2.16.7
+          helmv3: 3.2.1
+          kubeseal: 0.12.5
+          command: |
+            echo "test"
+            kubectl version

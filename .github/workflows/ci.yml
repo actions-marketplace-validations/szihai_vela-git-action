@@ -7,10 +7,12 @@ on:
 jobs:
   job1: 
     runs-on: ubuntu-latest
+    steps:
     - name: start kubectl
       uses: steebchen/kubectl@master
       env:
-        KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+        KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }  
     - name: connect to K8s cluster
       run:
         kubectl get pods
+        

@@ -7,5 +7,4 @@ jobs:
       - name: Run Kubernetes tools
         run: | 
           echo ${{ secrets.KUBECONFIG }} | base64 -d > kubeconfig
-          export KUBECONFIG=kubeconfig
-          echo $KUBECONFIG
+          cat kubeconfig

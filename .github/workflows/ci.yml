@@ -6,17 +6,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: deploy to cluster
+    - name: prepare environment
       uses: steebchen/kubectl@master
       env:
         KUBE_CONFIG_DATA: ${{ secrets.KUBECONFIG }}
-      with:
-        args: set image --record deployment/my-app container=${{ github.repository }}:${{ github.sha }}
-    - name: verify deployment
-      uses: steebchen/kubectl@master
-      env:
-        KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
-        KUBECTL_VERSION: "1.15"
-      with:
-        args: '"rollout status deployment/my-app"'
+    - name: test cluster
+      run: |
+        kubectl get po
         

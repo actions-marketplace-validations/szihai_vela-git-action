@@ -5,14 +5,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run Kubernetes tools
-        uses: stefanprodan/kube-tools@v1
-        with:
-          kubectl: 1.18.2
-          kustomize: 3.5.5
-          helm: 2.16.7
-          helmv3: 3.2.1
-          kubeseal: 0.12.5
-          command: |
-            echo "test"
-            export KUBECONFIG=${{ secrets.KUBECONFIG }} | base64 -D
-            kubectl get po
+        env: 
+          KUBECONFIG=${{ secrets.KUBECONFIG }} | base64 -D
+        run:
+          echo $KUBECONFIG

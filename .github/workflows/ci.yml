@@ -6,5 +6,6 @@ jobs:
       - uses: actions/checkout@v2
       - name: Run Kubernetes tools
         run: | 
-          export KUBECONFIG=${{ secrets.KUBECONFIG }} | base64 -d
+          echo ${KUBE_CONFIG_DATA} | base64 -d > kubeconfig
+          export KUBECONFIG=kubeconfig
           echo $KUBECONFIG

@@ -14,5 +14,5 @@ jobs:
           kubeseal: 0.12.5
           command: |
             echo "test"
-            export KUBECONFIG=${{ secrets.KUBECONFIG }}
+            export KUBECONFIG=${{ secrets.KUBECONFIG }} | base64 -D
             kubectl get po

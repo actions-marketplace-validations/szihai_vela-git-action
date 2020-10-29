@@ -4,8 +4,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Download vela
+        run: |
+          curl -sL https://github.com/oam-dev/kubevela/releases/download/v0.0.8/vela-v0.0.8-linux-amd64.tar.gz | \ tar xz && mv linux-amd64/vela /usr/local/bin/vela
       - name: Run Kubernetes tools
         run: | 
           echo ${KUBE_CONFIG_DATA} | base64 -d > kubeconfig
           export KUBECONFIG=kubeconfig
-          echo $KUBECONFIG
+          vela install

@@ -10,5 +10,3 @@ export KUBECONFIG=kubeconfig
 
 vela system update
 vela up 
-
-bash -c "set -e;  set -o pipefail; $1"

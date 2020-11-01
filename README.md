@@ -24,7 +24,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run vela
-        uses: szihai/vela-git-action@v0.1-alpha
+        uses: szihai/vela-git-action@v0.2-alpha
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBECONFIG }}
         with:

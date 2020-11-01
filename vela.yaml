@@ -1,0 +1,10 @@
+version: "1.0-alpha.1"
+name: citest
+
+services:
+
+  ci:
+    type: webservice
+    image: nginx:1.14.2
+    name: ci
+    

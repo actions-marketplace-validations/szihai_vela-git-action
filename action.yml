@@ -1,0 +1,16 @@
+# action.yml
+name: 'Vela up'
+description: 'Run vela yaml file'
+inputs:
+  appfile:  # id of input
+    description: 'Specify Appfile'
+    required: true
+    default: 'vela.yaml'
+outputs:
+  result: # id of output
+    description: 'Result of vela app list'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.appfile }}

@@ -8,6 +8,7 @@ curl -sL https://github.com/oam-dev/kubevela/releases/download/v0.0.8/vela-v0.0.
 echo ${KUBE_CONFIG_DATA} | base64 -d > kubeconfig
 export KUBECONFIG=kubeconfig
 
+vela system update
 vela up 
 
 bash -c "set -e;  set -o pipefail; $1"

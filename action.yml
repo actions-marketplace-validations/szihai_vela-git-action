@@ -1,5 +1,5 @@
 # action.yml
-name: 'Vela up'
+name: 'vela-ci'
 description: 'Run vela yaml file'
 inputs:
   appfile:  # id of input

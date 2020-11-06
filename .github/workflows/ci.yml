@@ -8,5 +8,7 @@ jobs:
         uses: ./
         env:
           KUBE_CONFIG_DATA: ${{ secrets.KUBECONFIG }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
         with:
           args: vela.yaml

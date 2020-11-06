@@ -7,6 +7,9 @@ curl -sL https://github.com/oam-dev/kubevela/releases/download/v0.0.8/vela-v0.0.
 
 echo ${KUBE_CONFIG_DATA} | base64 -d > kubeconfig
 export KUBECONFIG=kubeconfig
-echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+
+echo ${DOCKER_PASSWORD} | docker login -u ${DOCKER_USERNAME} --password-stdin
+
+
 vela system update
 vela up 
